@@ -1,7 +1,14 @@
+ion-split-pane {
+  border-top: 0.5px inset solid #00000020;
+}
+@media screen and (min-width: 992px) {
+  ion-menu {
+    width: 250px;
+  }
+}
 ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
-
 ion-menu.md ion-content {
   --padding-start: 8px;
   --padding-end: 8px;
@@ -23,13 +30,12 @@ ion-menu.md ion-note {
 }
 
 ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
+  border-bottom: 0px solid var(--ion-color-step-150, #d7d8da);
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
   font-weight: 600;
-
   min-height: 20px;
 }
 
@@ -116,4 +122,13 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+.home-logo {
+  width: 220px;
+  height: 73px;
+  margin: auto;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 6px;
+  text-align: center;
 }
