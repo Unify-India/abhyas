@@ -5,7 +5,7 @@ Thank you to all the wonderful people who have contributed to this project!
 ## Core Contributors
 
 - [IAM5K](https://github.com/iam5k)
-<!-- - [Jane Smith](https://github.com/janesmith)
+  <!-- - [Jane Smith](https://github.com/janesmith)
 - [Michael Johnson](https://github.com/michaeljohnson) -->
 
 ## External Contributors

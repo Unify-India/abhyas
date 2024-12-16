@@ -1,11 +1,6 @@
 {
-  "typescript.preferences.autoImportFileExcludePatterns": [
-    "@ionic/angular/common",
-    "@ionic/angular"
-  ],
-  "cSpell.words": [
-    "abhyas"
-  ],
+  "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"],
+  "cSpell.words": ["abhyas"],
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "editor.formatOnSave": true,
   "[github-actions-workflow]": {

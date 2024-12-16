@@ -1,7 +1,7 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier", "prettier/@typescript-eslint"],
+  "ignorePatterns": ["projects/**/*", "firebase/functions/**/*"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "jasmine"],
   "rules": {
@@ -16,7 +16,7 @@
 
   "overrides": [
     {
-      "files": ["**.ts"],
+      "files": ["**/*.ts"],
       "parserOptions": {
         "project": ["tsconfig.json"],
         "createDefaultProgram": true
@@ -75,14 +75,14 @@
     {
       "files": ["*.spec.ts"],
       "rules": {
-        "@typescript-eslint/no-unused-vars": "off", // Disable unused variable rule since it might be common in spec files
-        "@typescript-eslint/no-empty-function": "off", // Disable rule that disallows empty functions
-        "@typescript-eslint/no-explicit-any": "warn", // Disable rule that disallows the use of 'any' type
-        "@typescript-eslint/explicit-module-boundary-types": "off", // Disable rule that enforces explicit return types on functions
-        "jasmine/no-focused-tests": "warn", // Warn about focused tests (tests using fdescribe, fit, etc.)
-        "jasmine/no-disabled-tests": "warn", // Warn about disabled tests (tests using xdescribe, xit, etc.)
-        "jasmine/no-spec-dupes": "warn", // Warn about duplicated test suites
-        "jasmine/no-suite-dupes": "warn" // Warn about duplicated test cases
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "jasmine/no-focused-tests": "warn",
+        "jasmine/no-disabled-tests": "warn",
+        "jasmine/no-spec-dupes": "warn",
+        "jasmine/no-suite-dupes": "warn"
       }
     },
     {
@@ -90,7 +90,8 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaVersion": 2020,
-        "sourceType": "module"
+        "sourceType": "module",
+        "project": ["tsconfig.json"]
       },
       "plugins": ["@angular-eslint/template", "prettier"],
       "processor": "@angular-eslint/template/extract-inline-html"
