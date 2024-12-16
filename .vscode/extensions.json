@@ -1,5 +1,21 @@
 {
-    "recommendations": [
-      "ionic.ionic"
-    ]
+  "recommendations": [
+    "ionic.ionic",
+    "donjayamanne.githistory",
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "toba.vsfire",
+    "eamodio.gitlens",
+    "yzhang.markdown-all-in-one",
+    "pkief.material-icon-theme",
+    "pilaton.vscode-npm-lens",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "wayou.vscode-todo-highlight",
+    "johnpapa.angular2",
+    "angular.ng-template",
+    "github.vscode-github-actions",
+    "ambar.bundle-size",
+    "johnpapa.angular-essentials"
+  ]
 }

@@ -1,0 +1,32 @@
+/* Custom CSS */
+:host {
+  display: block;
+}
+.search-bar {
+  background-color: aqua;
+}
+
+ion-card {
+  box-shadow: 0 0 5px var(--ion-color-dark);
+  gap: 20px;
+}
+.hostel-image-container {
+  height: 200px;
+  width: 100%;
+  background-color: lime;
+  image-rendering: optimizeSpeed;
+  object-fit: cover;
+}
+@media (min-width: 576px) {
+  /* Tablet styling */
+  .hostel-card-container ion-col {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Desktop styling */
+  .hostel-card-container ion-col {
+    max-width: 25%;
+  }
+}
