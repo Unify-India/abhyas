@@ -1,6 +1,6 @@
 {
   "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"],
-  "cSpell.words": ["abhyas"],
+  "cSpell.words": ["abhyas", "styleext"],
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "editor.formatOnSave": true,
   "[github-actions-workflow]": {
