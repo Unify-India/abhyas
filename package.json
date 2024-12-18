@@ -9,7 +9,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint --fix",
+    "format": "prettier --write ."
   },
   "private": true,
   "dependencies": {
@@ -27,7 +28,10 @@
     "@capacitor/keyboard": "6.0.3",
     "@capacitor/status-bar": "6.0.2",
     "@ionic/angular": "^8.0.0",
+    "autoprefixer": "^10.4.20",
     "ionicons": "^7.2.1",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

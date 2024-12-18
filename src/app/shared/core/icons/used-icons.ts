@@ -41,7 +41,7 @@ import {
   fastFoodSharp,
   restaurantOutline,
   restaurantSharp,
-} from "ionicons/icons";
+} from 'ionicons/icons';
 
 export class UsedIcons {
   static icons = {

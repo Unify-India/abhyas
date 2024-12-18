@@ -1,7 +1,20 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import {
-  IonInput, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonGrid, IonCol, IonRow, IonButton, IonIcon, IonItem, IonList, IonImg
-} from "@ionic/angular/standalone";
+  IonInput,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonGrid,
+  IonCol,
+  IonRow,
+  IonButton,
+  IonIcon,
+  IonItem,
+  IonList,
+  IonImg,
+} from '@ionic/angular/standalone';
 
 @NgModule({
   declarations: [],
@@ -19,7 +32,7 @@ import {
     IonCardContent,
     IonCardSubtitle,
     IonCardTitle,
-    IonCardHeader
+    IonCardHeader,
   ],
   exports: [
     IonCard,
@@ -35,7 +48,7 @@ import {
     IonCardContent,
     IonCardSubtitle,
     IonCardTitle,
-    IonCardHeader
-  ]
+    IonCardHeader,
+  ],
 })
-export class UiEssentials { }
+export class UiEssentials {}

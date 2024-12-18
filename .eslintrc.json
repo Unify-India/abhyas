@@ -11,7 +11,7 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": ["warn", { "allowArgumentsExplicitlyTypedAsAny": true }],
     "object-curly-spacing": ["error", "always"],
-    "quotes": ["error", "double"]
+    "quotes": ["error", "single"]
   },
 
   "overrides": [
@@ -23,6 +23,7 @@
       },
       "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates"],
       "rules": {
+        "@angular-eslint/no-empty-lifecycle-method": ["warn"],
         "@angular-eslint/component-class-suffix": [
           "error",
           {

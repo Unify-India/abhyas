@@ -1,6 +1,6 @@
-import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
   IonApp,
   IonSplitPane,
@@ -14,16 +14,16 @@ import {
   IonIcon,
   IonLabel,
   IonRouterOutlet,
-} from "@ionic/angular/standalone";
-import { addIcons } from "ionicons";
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
 
-import { MenuData } from "./shared/core/menu/menu.data";
-import { UsedIcons } from "./shared/core/icons/used-icons";
+import { MenuData } from './shared/core/menu/menu.data';
+import { UsedIcons } from './shared/core/icons/used-icons';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "app.component.html",
-  styleUrls: ["app.component.scss"],
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
   standalone: true,
   imports: [
     RouterLink,
