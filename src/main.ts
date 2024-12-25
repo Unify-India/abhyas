@@ -34,7 +34,7 @@ bootstrapApplication(AppComponent, {
       return auth;
     }),
     provideFunctions(() => {
-      const functions = getFunctions(undefined, environment?.firebase?.functionsRegion);
+      const functions = getFunctions(undefined, environment?.functionsRegion);
       if (environment.useEmulators) {
         connectFunctionsEmulator(functions, 'localhost', environment?.ports?.functions);
       }
