@@ -1,8 +1,8 @@
-name: Standard Angular App Flow
+name: Standard Workflow
 
 on:
   pull_request:
-    branches: ['main', 'development']
+    branches: ['main', 'development', 'release/*', 'staging/*', 'hotfix/*']
 
 jobs:
   lint:
@@ -15,8 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Adjust this to the Node.js version your project needs
-
+          node-version: '20'
       - name: Install dependencies
         run: npm install
 
@@ -34,14 +33,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Adjust this to the Node.js version your project needs
+          node-version: '20'
+
+      - name: Use local environment file
+        run: |
+          echo "export const environment = { production: true, apiUrl: 'https://example.com/api',  useEmulators: true, firebase: {},functionsRegion: 'asia-south1', emulatorUrls: {  auth: 'http://127.0.0.1:9099',  functions: 'http://127.0.0.1:5001',  firestore: 'http://127.0.0.1:8080',  database: 'http://127.0.0.1:9000',  extensions: 'http://127.0.0.1:5001',},ports: {  auth: 9099,  functions: 5001,  firestore: 8080,  database: 9000,  extensions: 5001,}, };" > src/environments/environment.prod.ts
 
       - name: Install dependencies
         run: npm install
-
-      - name: Create placeholder environment.prod.ts
-        run: |
-          echo "export const environment = { production: true, apiUrl: 'https://example.com/api' };" > src/environments/environment.prod.ts
 
       - name: Build app
         run: npm run build
