@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
 
   async loginWithGoogle() {
     try {
-      await this.authService.loginWithGoogle();
+      // await this.authService.loginWithGoogle();
       // Redirect based on user role (you'll need to implement this logic in AuthService)
       this.router.navigate(['/dashboard']);
     } catch (error) {
