@@ -22,28 +22,28 @@ bootstrapApplication(AppComponent, {
     provideFirestore(() => {
       const firestore = getFirestore();
       if (environment.useEmulators) {
-        connectFirestoreEmulator(firestore, 'localhost', environment.ports.firestore);
+        connectFirestoreEmulator(firestore, 'localhost', environment?.ports?.firestore);
       }
       return firestore;
     }),
     provideAuth(() => {
       const auth = getAuth();
       if (environment.useEmulators) {
-        connectAuthEmulator(auth, environment.emulatorUrls.auth);
+        connectAuthEmulator(auth, environment?.emulatorUrls?.auth);
       }
       return auth;
     }),
     provideFunctions(() => {
-      const functions = getFunctions(undefined, environment.firebase.functionsRegion);
+      const functions = getFunctions(undefined, environment?.firebase?.functionsRegion);
       if (environment.useEmulators) {
-        connectFunctionsEmulator(functions, 'localhost', environment.ports.functions);
+        connectFunctionsEmulator(functions, 'localhost', environment?.ports?.functions);
       }
       return functions;
     }),
     provideDatabase(() => {
       const database = getDatabase();
       if (environment.useEmulators) {
-        connectDatabaseEmulator(database, 'localhost', environment.ports.database);
+        connectDatabaseEmulator(database, 'localhost', environment?.ports?.database);
       }
       return database;
     }),
