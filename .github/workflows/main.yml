@@ -35,12 +35,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Use local environment file
         run: |
-          echo "export const environment = { production: true, apiUrl: 'https://example.com/api',  useEmulators: true,emulatorUrls: {  auth: 'http://127.0.0.1:9099',  functions: 'http://127.0.0.1:5001',  firestore: 'http://127.0.0.1:8080',  database: 'http://127.0.0.1:9000',  extensions: 'http://127.0.0.1:5001',},ports: {  auth: 9099,  functions: 5001,  firestore: 8080,  database: 9000,  extensions: 5001,}, };" > src/environments/environment.prod.ts
+          echo "export const environment = { production: true, apiUrl: 'https://example.com/api',  useEmulators: true, firebase: {} emulatorUrls: {  auth: 'http://127.0.0.1:9099',  functions: 'http://127.0.0.1:5001',  firestore: 'http://127.0.0.1:8080',  database: 'http://127.0.0.1:9000',  extensions: 'http://127.0.0.1:5001',},ports: {  auth: 9099,  functions: 5001,  firestore: 8080,  database: 9000,  extensions: 5001,}, };" > src/environments/environment.prod.ts
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build app
         run: npm run build
