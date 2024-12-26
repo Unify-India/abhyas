@@ -1,32 +1,29 @@
-/* Custom CSS */
-:host {
-  display: block;
-}
-.search-bar {
-  background-color: aqua;
+.navigation-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  background: none;
+  background-color: none;
 }
 
-ion-card {
-  box-shadow: 0 0 5px var(--ion-color-dark);
-  gap: 20px;
+.navigation-options ion-item {
+  flex: 1 1 calc(25% - 20px);
+  max-width: calc(20% - 20px);
+  margin: 10px;
+  text-align: center;
 }
-.hostel-image-container {
-  height: 200px;
-  width: 100%;
-  background-color: lime;
-  image-rendering: optimizeSpeed;
-  object-fit: cover;
-}
-@media (min-width: 576px) {
-  /* Tablet styling */
-  .hostel-card-container ion-col {
-    max-width: 50%;
+
+@media (max-width: 768px) {
+  .navigation-options ion-item {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
-@media (min-width: 768px) {
-  /* Desktop styling */
-  .hostel-card-container ion-col {
-    max-width: 25%;
+@media (max-width: 576px) {
+  .navigation-options ion-item {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 }
