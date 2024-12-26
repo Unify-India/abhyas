@@ -1,13 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">login</ion-title>
+      <ion-title size="large">{{pageTitle}}</ion-title>
     </ion-toolbar>
   </ion-header>
+  <div id="container">
+    <div class="login-container">
+      <div class="login-card">
+        <ion-button expand="block" (click)="loginAs('Admin')">Login as Admin</ion-button>
+        <ion-button expand="block" (click)="loginAs('Teacher')">Login as Teacher</ion-button>
+        <ion-button expand="block" (click)="loginAs('Student')">Login as Student</ion-button>
+        <ion-button expand="block" (click)="loginAs('School')">Login as School</ion-button>
+        <ion-button expand="block" (click)="loginWithGoogle()">
+          <ion-icon name="logo-google" slot="start"></ion-icon>
+          Login with Google
+        </ion-button>
+      </div>
+      <!-- <ion-button expand="block">
+        <ion-icon name="logo-facebook" slot="start"></ion-icon>
+        Login with Facebook
+      </ion-button> -->
+    </div>
+  </div>
 </ion-content>

@@ -1,0 +1,32 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  height: 90vh;
+  width: 100%;
+  margin: auto;
+}
+
+.login-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: min(400px, 90%);
+  align-items: center;
+  min-height: 20vh;
+  height: auto;
+  // background-color: red;
+  background: rgba(255, 255, 255, 0.1);
+  margin: auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+ion-button {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+}

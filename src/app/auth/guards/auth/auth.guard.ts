@@ -11,18 +11,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   ) {}
 
   canActivate(): boolean {
-    const user = this.authService.getCurrentUser();
-    if (!user) {
-      this.router.navigate(['/login']);
-      return false;
-    }
-
-    if (user.role === UserRoles.Student && !this.hasValidSubscription()) {
-      this.router.navigate(['/subscription']);
-      return false;
-    }
-
-    return true;
+    return this.checkAccess();
   }
 
   canActivateChild(): boolean {
@@ -38,24 +27,43 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   }
 
   canLoad(): boolean {
-    const user = this.authService.getCurrentUser();
-    if (!user) {
-      this.router.navigate(['/login']);
-      return false;
-    }
-
-    // Check additional permissions for loading modules
-    if (user.role === UserRoles.Student && !this.hasValidSubscription()) {
-      this.router.navigate(['/subscription']);
-      return false;
-    }
-
-    return true;
+    return this.checkAccess();
   }
 
   private hasValidSubscription(): boolean {
     const user = this.authService.getCurrentUser();
     // Assume `authService` provides a method to check subscriptions
     return this.authService.hasValidSubscription(user?.id ? '' : '');
+  }
+
+  private checkAccess(): boolean {
+    const user = this.authService.getCurrentUser();
+    if (!user) {
+      this.router.navigate(['/login']);
+      return false;
+    }
+
+    const allowedRoles = this.getAllowedRoles(user.role);
+    if (!allowedRoles.includes(user.role)) {
+      this.router.navigate(['/not-found']);
+      return false;
+    }
+
+    return true;
+  }
+
+  private getAllowedRoles(role: string): string[] {
+    switch (role) {
+      case 'Admin':
+        return ['Admin'];
+      case 'Teacher':
+        return ['Teacher'];
+      case 'Student':
+        return ['Student'];
+      case 'School':
+        return ['School'];
+      default:
+        return [];
+    }
   }
 }
