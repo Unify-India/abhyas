@@ -1,53 +1,39 @@
 export class MenuData {
   public static defaultAppPages = [
     { title: 'Dashboard', url: 'dashboard', icon: 'grid' },
-    { title: 'Hostels / PG', url: 'hostel', icon: 'home' },
-    { title: 'Mess', url: 'mess', icon: 'restaurant' },
-    { title: 'Raise Ticket', url: 'tickets', icon: 'warning' },
     { title: 'Plans', url: 'plans', icon: 'list' },
-    { title: 'Payment History', url: 'payment-history', icon: 'cash' },
     { title: 'Feedback', url: 'feedback', icon: 'star' },
-    { title: 'Profile', url: 'profile', icon: 'person' },
     { title: 'Login', url: 'login', icon: 'log-in' },
   ];
 
-  private static adminAppPages = [
-    { title: 'Home', url: 'dashboard', icon: 'home' },
-    { title: 'Admin Dashboard', url: 'admin/admin-dashboard', icon: 'person' },
-    { title: 'Manage Mess', url: 'admin/manage-mess', icon: 'restaurant' },
-    { title: 'Manage Users', url: 'admin/manage-users', icon: 'people' },
-    { title: 'Manage Offers', url: 'admin/manage-offers', icon: 'pricetag' },
-    { title: 'Manage Options', url: 'admin/manage-options', icon: 'options' },
-    { title: 'Form Setup', url: 'admin/form-setup', icon: 'document' },
-    { title: 'Manage Guideline', url: 'admin/manage-guideline', icon: 'book' },
-    { title: 'Manage Help', url: 'admin/manage-help', icon: 'help-circle' },
-    { title: 'Pricing Setup', url: 'admin/pricing-setup', icon: 'pricetags' },
-    {
-      title: 'Manage Notice',
-      url: 'admin/manage-notice',
-      icon: 'notifications',
-    },
-  ];
-  private static managerAppPages = [
-    { title: 'Home', url: 'dashboard', icon: 'home' },
-    { title: 'Mess Dashboard', url: 'manager/dashboard', icon: 'restaurant' },
-    { title: 'Menu Setup', url: 'manager/menu', icon: 'book' },
-    { title: 'Inventory', url: 'manager/inventory', icon: 'cube' },
-    { title: 'Customer', url: 'manager/customer', icon: 'people' },
-    { title: 'Mess Profile', url: 'manager/profile', icon: 'person' },
-    { title: 'Contacts', url: 'manager/contact', icon: 'call' },
-    { title: 'Staff', url: 'manager/staff', icon: 'people' },
-    { title: 'Feedbacks', url: 'manager/feedback', icon: 'clipboard' },
-    { title: 'FAQ', url: 'manager/faq', icon: 'help-circle' },
-    { title: 'Setup', url: 'manager/setup', icon: 'settings' },
+  public static adminAppPages = [
+    { title: 'Dashboard', url: 'admin/dashboard', icon: 'home' },
+    { title: 'School Management', url: 'admin/school-management/school-list', icon: 'school' },
+    { title: 'User Management', url: 'admin/user-management/user-list', icon: 'people' },
+    { title: 'Performance Report', url: 'admin/reports/performance-report', icon: 'stats-chart' },
+    { title: 'Activity Report', url: 'admin/reports/activity-report', icon: 'stats-chart' },
   ];
 
-  private loggedInPages = [
-    { title: 'Dashboard', url: '/dashboard', icon: 'grid' },
-    { title: 'Raise Ticket', url: '/tickets', icon: 'warning' },
-    { title: 'Payment', url: '/payment', icon: 'cash' },
-    { title: 'Feedback', url: '/feedback', icon: 'star' },
-    { title: 'Profile', url: '/profile', icon: 'person' },
-    { title: 'Logout', url: '/logout', icon: 'log-out' },
+  public static teacherAppPages = [
+    { title: 'Dashboard', url: 'teacher/dashboard', icon: 'home' },
+    { title: 'Create Question', url: 'teacher/question-management/create-question', icon: 'create' },
+    { title: 'Question List', url: 'teacher/question-management/question-list', icon: 'list' },
+    { title: 'Create Exam', url: 'teacher/exam-management/create-exam', icon: 'create' },
+    { title: 'Exam List', url: 'teacher/exam-management/exam-list', icon: 'list' },
+    { title: 'My Listings', url: 'teacher/marketplace/my-listings', icon: 'list' },
+    { title: 'Sales Report', url: 'teacher/marketplace/sales-report', icon: 'stats-chart' },
+  ];
+
+  public static studentAppPages = [
+    { title: 'Dashboard', url: 'student/dashboard', icon: 'home' },
+    { title: 'Exam List', url: 'student/exam-list', icon: 'list' },
+    { title: 'Browse Questions', url: 'student/marketplace/browse-questions', icon: 'search' },
+    { title: 'My Purchases', url: 'student/marketplace/my-purchases', icon: 'cart' },
+    { title: 'School Search', url: 'student/school-search', icon: 'school' },
+  ];
+
+  public static schoolAppPages = [
+    { title: 'Profile', url: 'school/profile', icon: 'person' },
+    { title: 'Join Requests', url: 'school/requests/join-requests', icon: 'people' },
   ];
 }
