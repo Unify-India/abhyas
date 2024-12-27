@@ -19,16 +19,7 @@ export const environment = {
     database: 9000,
     extensions: 5001,
   },
-  firebase: {
-    apiKey: 'AIzaSyASDlavnQbyYPzTGVKCjgsN8IEqmY3yEH8',
-    authDomain: 'acharya-81fcf.firebaseapp.com',
-    databaseURL: 'https://acharya-81fcf-default-rtdb.asia-southeast1.firebasedatabase.app',
-    projectId: 'acharya-81fcf',
-    storageBucket: 'acharya-81fcf.firebasestorage.app',
-    messagingSenderId: '429806658529',
-    appId: '1:429806658529:web:a724cd205e9186d5ade8a0',
-    measurementId: 'G-2BEEHQZ4NK',
-  },
+  firebase: {},
   functionsRegion: 'asia-south1',
 };
 
