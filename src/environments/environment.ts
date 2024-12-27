@@ -4,6 +4,23 @@
 
 export const environment = {
   production: false,
+  useEmulators: true,
+  emulatorUrls: {
+    auth: 'http://127.0.0.1:9099',
+    functions: 'http://127.0.0.1:5001',
+    firestore: 'http://127.0.0.1:8080',
+    database: 'http://127.0.0.1:9000',
+    extensions: 'http://127.0.0.1:5001',
+  },
+  ports: {
+    auth: 9099,
+    functions: 5001,
+    firestore: 8080,
+    database: 9000,
+    extensions: 5001,
+  },
+  firebase: {},
+  functionsRegion: 'asia-south1',
 };
 
 /*

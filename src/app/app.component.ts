@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import {
   IonApp,
   IonSplitPane,
@@ -16,9 +16,11 @@ import {
   IonRouterOutlet,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
+import { Subscription } from 'rxjs';
 
 import { MenuData } from './shared/core/menu/menu.data';
 import { UsedIcons } from './shared/core/icons/used-icons';
+import { AuthService } from './auth/service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -43,10 +45,57 @@ import { UsedIcons } from './shared/core/icons/used-icons';
     IonRouterOutlet,
   ],
 })
-export class AppComponent {
-  defaultAppPages = MenuData.defaultAppPages;
+export class AppComponent implements OnInit, OnDestroy {
+  appPages = MenuData.defaultAppPages;
   icons = UsedIcons.icons;
-  constructor() {
+  isLoggedIn = false;
+  private authListenerSubs!: Subscription;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {
     addIcons(this.icons);
+  }
+
+  ngOnInit() {
+    this.updateMenu();
+    this.authListenerSubs = this.authService.getAuthStatusListener().subscribe((user) => {
+      this.updateMenu();
+    });
+  }
+
+  ngOnDestroy() {
+    this.authListenerSubs.unsubscribe();
+  }
+
+  updateMenu() {
+    const user = this.authService.getCurrentUser();
+    this.isLoggedIn = !!user;
+    if (!user) {
+      this.appPages = MenuData.defaultAppPages;
+    } else {
+      switch (user.role) {
+        case 'Admin':
+          this.appPages = MenuData.adminAppPages;
+          break;
+        case 'Teacher':
+          this.appPages = MenuData.teacherAppPages;
+          break;
+        case 'Student':
+          this.appPages = MenuData.studentAppPages;
+          break;
+        case 'School':
+          this.appPages = MenuData.schoolAppPages;
+          break;
+        default:
+          this.appPages = MenuData.defaultAppPages;
+          break;
+      }
+    }
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

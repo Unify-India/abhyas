@@ -12,6 +12,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 })
 export class DashboardPage implements OnInit {
   constructor() {}
-
+  pageTitle="Admin dashboard";
   ngOnInit() {}
 }

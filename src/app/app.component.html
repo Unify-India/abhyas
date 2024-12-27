@@ -5,7 +5,7 @@
         <ion-list id="inbox-list">
           <ion-list-header>Abhyas</ion-list-header>
           <ion-note>ॐ श्री गणेशाय नमः</ion-note>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of defaultAppPages; let i = index">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item
               routerDirection="root"
               [routerLink]="[p.url]"
@@ -13,10 +13,14 @@
               detail="false"
               routerLinkActive="selected"
             >
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-item *ngIf="isLoggedIn" lines="none" detail="false" class="cursor-pointer" (click)="logout()">
+            <ion-icon slot="start" color="danger" [ios]="'log-out-outline'" [md]="'log-out-sharp'"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

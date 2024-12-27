@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth/auth.guard';
-// Import your AuthGuard
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login', // Redirect to login initially
+    redirectTo: '/dashboard',
     pathMatch: 'full',
   },
   {
@@ -14,27 +13,31 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [AuthGuard], // Protect the dashboard route
     loadComponent: () => import('./pages/core/dashboard/dashboard.page').then((m) => m.DashboardPage),
   },
   {
     path: 'admin',
+    canLoad: [AuthGuard],
     loadChildren: () => import('./pages/admin/admin-routing.module').then((m) => m.AdminRoutingModule),
   },
   {
     path: 'teacher',
+    canLoad: [AuthGuard],
     loadChildren: () => import('./pages/teacher/teacher-routing.module').then((m) => m.TeacherRoutingModule),
   },
   {
     path: 'student',
+    canLoad: [AuthGuard],
     loadChildren: () => import('./pages/student/student-routing.module').then((m) => m.StudentRoutingModule),
   },
   {
     path: 'school',
+    canLoad: [AuthGuard],
     loadChildren: () => import('./pages/school/school-routing.module').then((m) => m.SchoolRoutingModule),
   },
   {
     path: 'exam',
+    canLoad: [AuthGuard],
     loadChildren: () => import('./pages/exam/exam-routing.module').then((m) => m.ExamRoutingModule),
   },
   {
@@ -45,5 +48,13 @@ export const routes: Routes = [
     path: 'server-error',
     loadComponent: () => import('./pages/core/server-error/server-error.page').then((m) => m.ServerErrorPage),
   },
-  { path: '**', redirectTo: '/not-found' }, // Wildcard route for 404
+  {
+    path: 'plans',
+    loadComponent: () => import('./pages/core/plans/plans.page').then((m) => m.PlansPage),
+  },
+  {
+    path: 'feedback',
+    loadComponent: () => import('./pages/core/feedback/feedback.page').then((m) => m.FeedbackPage),
+  },
+  { path: '**', redirectTo: '/not-found' },
 ];
