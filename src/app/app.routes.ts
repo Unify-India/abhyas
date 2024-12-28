@@ -56,5 +56,13 @@ export const routes: Routes = [
     path: 'feedback',
     loadComponent: () => import('./pages/core/feedback/feedback.page').then((m) => m.FeedbackPage),
   },
+  {
+    path: 'faq',
+    loadComponent: () => import('./pages/core/faq/faq.page').then((m) => m.FaqPage),
+  },
+  {
+    path: 'contact',
+    loadComponent: () => import('./pages/core/contact/contact.page').then((m) => m.ContactPage),
+  },
   { path: '**', redirectTo: '/not-found' },
 ];
