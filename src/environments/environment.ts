@@ -19,7 +19,16 @@ export const environment = {
     database: 9000,
     extensions: 5001,
   },
-  firebase: {},
+  firebase: {
+    apiKey: 'AIzaSyD3w3qj8-3vZm7QZ6Qq3Jf5D9M8XvUq8Xw',
+    authDomain: 'acharya-81fcf.firebaseapp.com',
+    projectId: 'acharya-81fcf',
+    storageBucket: 'acharya-81fcf.appspot.com',
+    databaseURL: 'http://127.0.0.1:9000',
+    messagingSenderId: '1085282617224',
+    appId: '1:1085282617224:web:1b5b4f7a0f2b1b3b1d9d0e',
+    measurementId: 'G-8XZV0JZQZD',
+  },
   functionsRegion: 'asia-south1',
 };
 

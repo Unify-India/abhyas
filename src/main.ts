@@ -7,16 +7,16 @@ import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { connectAuthEmulator, getAuth, provideAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideFirestore, getFirestore, connectFirestoreEmulator } from '@angular/fire/firestore';
 import { provideDatabase, getDatabase, connectDatabaseEmulator } from '@angular/fire/database';
 import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { connectFunctionsEmulator, getFunctions, provideFunctions } from '@angular/fire/functions';
 import { environment } from './environments/environment';
-import { connectFirestoreEmulator } from 'firebase/firestore';
 import { importProvidersFrom } from '@angular/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateConfigService } from './app/services/translation/translation.service';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -70,5 +70,6 @@ bootstrapApplication(AppComponent, {
         },
       }),
     ),
+    TranslateConfigService, // Add the service here
   ],
 });
