@@ -17,6 +17,7 @@ import {
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { Subscription } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { MenuData } from './shared/core/menu/menu.data';
 import { UsedIcons } from './shared/core/icons/used-icons';
@@ -43,6 +44,7 @@ import { AuthService } from './auth/service/auth.service';
     IonIcon,
     IonLabel,
     IonRouterOutlet,
+    TranslateModule,
   ],
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private translate: TranslateService,
   ) {
     addIcons(this.icons);
   }

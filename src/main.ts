@@ -12,6 +12,11 @@ import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingServ
 import { connectFunctionsEmulator, getFunctions, provideFunctions } from '@angular/fire/functions';
 import { environment } from './environments/environment';
 import { connectFirestoreEmulator } from 'firebase/firestore';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; // Adjust import
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
+import { TranslateConfigService } from './app/services/translation/translation.service';
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -50,5 +55,7 @@ bootstrapApplication(AppComponent, {
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
     UserTrackingService,
+    importProvidersFrom(TranslateModule.forRoot()), // Configure TranslateModule here
+    TranslateConfigService,
   ],
 });
