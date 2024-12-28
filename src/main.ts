@@ -1,3 +1,4 @@
+import 'zone.js';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
@@ -12,11 +13,15 @@ import { getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingServ
 import { connectFunctionsEmulator, getFunctions, provideFunctions } from '@angular/fire/functions';
 import { environment } from './environments/environment';
 import { connectFirestoreEmulator } from 'firebase/firestore';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core'; // Adjust import
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
-import { TranslateConfigService } from './app/services/translation/translation.service';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -55,7 +60,15 @@ bootstrapApplication(AppComponent, {
     provideAnalytics(() => getAnalytics()),
     ScreenTrackingService,
     UserTrackingService,
-    importProvidersFrom(TranslateModule.forRoot()), // Configure TranslateModule here
-    TranslateConfigService,
+    provideHttpClient(),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      }),
+    ),
   ],
 });

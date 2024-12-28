@@ -21,9 +21,11 @@ export class DashboardPage implements OnInit {
     private router: Router,
     private translate: TranslateService,
   ) {
-    this.translate.setDefaultLang('en');
-    const browserLang: any = this.translate.getBrowserLang();
-    this.translate.use(browserLang);
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang() || 'en';
+    translate.use(browserLang.match(/en|hi/) ? browserLang : 'en');
   }
 
   ngOnInit() {}
