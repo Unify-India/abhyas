@@ -3,18 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ pageTitle }}</ion-title>
+    <ion-title>{{ 'WELCOME' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ pageTitle }}</ion-title>
+      <ion-title size="large">{{ 'WELCOME' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <h1>Welcome to Abhyas!</h1>
+    <ion-button expand="block" (click)="loginAs('Admin')">{{ 'LOGIN_AS_ADMIN' | translate }}</ion-button>
+    <ion-button expand="block" (click)="loginAs('Teacher')">{{ 'LOGIN_AS_TEACHER' | translate }}</ion-button>
+    <ion-button expand="block" (click)="loginAs('Student')">{{ 'LOGIN_AS_STUDENT' | translate }}</ion-button>
   </div>
 </ion-content>

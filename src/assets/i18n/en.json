@@ -1,0 +1,8 @@
+{
+  "WELCOME": "Welcome to Abhyas!",
+  "SELECT_LANGUAGE": "Select Language",
+  "LOGIN_AS_ADMIN": "Login as Admin",
+  "LOGIN_AS_TEACHER": "Login as Teacher",
+  "LOGIN_AS_STUDENT": "Login as Student",
+  "LOGOUT": "Logout"
+}
