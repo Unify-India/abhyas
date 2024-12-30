@@ -14,13 +14,13 @@ COPY package*.json ./
 RUN npm install
 
 # Install global packages
-RUN npm install -g @angular/cli @ionic/cli firebase firebase-tools
+RUN npm install -g firebase-tools
 
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port your Ionic app runs on (usually 8100)
-EXPOSE 8100
+# Expose the ports for Firebase emulators
+EXPOSE 4000 8080 9000 9099 5001
 
-# Start the Firebase emulator and Ionic server
-CMD sh -c "firebase emulators:start --only functions,database,hosting,firestore & ionic serve --host 0.0.0.0"
+# Start the Firebase emulators
+CMD ["firebase", "emulators:start", "--only", "functions,database,hosting,firestore", "--project", "your-project-id"]

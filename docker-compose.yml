@@ -1,12 +1,30 @@
-version: '3.8'
+version: "3.9"  # Specify the Docker Compose version
 
 services:
-  app:
-    build: .
+  ionic:
+    build:
+      context: .
+      dockerfile: Dockerfile.ionic
     ports:
-      - "80:80"
+      - "8100:8100"  # Map port 8100 from the container to your host machine
     volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=production
+      - .:/usr/src/app  # Mount the current directory to /usr/src/app in the container
+      - /usr/src/app/node_modules  # Ensure node_modules is not overwritten
+    command: ionic serve --host 0.0.0.0 --poll
+
+  firebase:
+    build:
+      context: .
+      dockerfile: Dockerfile.firebase
+    ports:
+      - "4000:4000"  # Firebase Emulator UI
+      - "8080:8080"  # Firestore
+      - "9000:9000"  # Realtime Database
+      - "9099:9099"  # Authentication
+      - "5001:5001"  # Functions
+    volumes:
+      - .:/usr/src/app  # Mount the current directory to /usr/src/app in the container
+      - /usr/src/app/node_modules  # Ensure node_modules is not overwritten
+    env_file:
+      - .env  # Use the .env file for environment variables
+    command: firebase emulators:start --only functions,database,hosting,firestore --project your-project-id
