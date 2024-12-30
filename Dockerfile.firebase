@@ -1,0 +1,26 @@
+# Use a Node.js base image
+FROM node:20-alpine
+
+# Install Java
+RUN apk add --no-cache openjdk11
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Install global packages
+RUN npm install -g firebase-tools
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the ports for Firebase emulators
+EXPOSE 4000 8080 9000 9099 5001
+
+# Start the Firebase emulators
+CMD ["firebase", "emulators:start", "--only", "functions,database,hosting,firestore", "--project", "your-project-id"]
