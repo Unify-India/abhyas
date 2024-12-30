@@ -1,13 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>create-question</ion-title>
+    <ion-title>Create Question</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">create-question</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Question</ion-label>
+      <ion-input formControlName="question" type="text"></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="questionForm.get('question')?.touched && questionForm.get('question')?.invalid">
+      Question is required.
+    </ion-note>
+
+    <ion-item>
+      <ion-label position="floating">Type of Question</ion-label>
+      <ion-select formControlName="type" (ionChange)="onTypeChange()">
+        <ion-select-option value="mcq">Multiple Choice</ion-select-option>
+        <ion-select-option value="fill-in-the-blanks">Fill in the Blanks</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-note color="danger" *ngIf="questionForm.get('type')?.touched && questionForm.get('type')?.invalid">
+      Type of question is required.
+    </ion-note>
+
+    <div *ngIf="questionForm.get('type')?.value === 'mcq'">
+      <ion-item>
+        <ion-label position="floating">Option 1</ion-label>
+        <ion-input formControlName="option1" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Option 2</ion-label>
+        <ion-input formControlName="option2" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Option 3</ion-label>
+        <ion-input formControlName="option3" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Option 4</ion-label>
+        <ion-input formControlName="option4" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correct Option</ion-label>
+        <ion-select formControlName="correctOption">
+          <ion-select-option value="option1">Option 1</ion-select-option>
+          <ion-select-option value="option2">Option 2</ion-select-option>
+          <ion-select-option value="option3">Option 3</ion-select-option>
+          <ion-select-option value="option4">Option 4</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div *ngIf="questionForm.get('type')?.value === 'fill-in-the-blanks'">
+      <ion-item>
+        <ion-label position="floating">Answer</ion-label>
+        <ion-input formControlName="answer" type="text"></ion-input>
+      </ion-item>
+    </div>
+
+    <ion-button expand="block" type="submit" [disabled]="questionForm.invalid">Submit</ion-button>
+  </form>
 </ion-content>
