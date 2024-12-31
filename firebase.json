@@ -12,7 +12,7 @@
     "auth": {
       "port": 9099,
       "host": "localhost",
-      "seed": "firebase/auth-seed.json",
+      "seed": "firebase/auth-data.json",
       "logFile": "firebase/logs/auth-debug.log"
     },
     "functions": {
@@ -23,26 +23,26 @@
     "firestore": {
       "port": 8080,
       "host": "localhost",
+      "seed": "firebase/firestore-seed.json",
       "logFile": "firebase/logs/firestore-debug.log"
     },
     "database": {
       "port": 9000,
       "host": "localhost",
       "rules": "firebase/database.rules.json",
-      "seed": "firebase/seed-data.json",
       "logFile": "firebase/logs/database-debug.log"
     },
     "ui": {
       "enabled": true,
-      "port": 4000
+      "port": 9100
     },
     "singleProjectMode": true
   },
   "database": {
-    "rules": "database.rules.json"
+    "rules": "firebase/database.rules.json"
   },
   "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
+    "rules": "firebase/firestore.rules",
+    "indexes": "firebase/firestore.indexes.json"
   }
 }
