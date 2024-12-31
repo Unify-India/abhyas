@@ -23,14 +23,13 @@
     "firestore": {
       "port": 8080,
       "host": "localhost",
-      "seed": "firebase/firestore-seed.json",
+      "seed": "firebase/seeds/firestore-seed.json",
       "logFile": "firebase/logs/firestore-debug.log"
     },
     "database": {
       "port": 9000,
       "host": "localhost",
-      "rules": "firebase/database.rules.json",
-      "seed": "firebase/seed-data.json",
+      "seed": "firebase/seeds/seed-data.json",
       "logFile": "firebase/logs/database-debug.log"
     },
     "ui": {
