@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "localId": "user1",
+      "email": "user1@example.com",
+      "emailVerified": true,
+      "passwordHash": "password1",
+      "salt": "salt1",
+      "displayName": "User One",
+      "photoUrl": "http://www.example.com/user1/photo.png",
+      "disabled": false
+    },
+    {
+      "localId": "user2",
+      "email": "user2@example.com",
+      "emailVerified": true,
+      "passwordHash": "password2",
+      "salt": "salt2",
+      "displayName": "User Two",
+      "photoUrl": "http://www.example.com/user2/photo.png",
+      "disabled": false
+    }
+  ]
+}
