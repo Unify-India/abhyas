@@ -39,7 +39,9 @@ bootstrapApplication(AppComponent, {
     provideAuth(() => {
       const auth = getAuth();
       if (environment.useEmulators) {
-        connectAuthEmulator(auth, environment?.emulatorUrls?.auth);
+        connectAuthEmulator(auth, environment?.emulatorUrls?.auth, {
+          disableWarnings: true,
+        });
       }
       return auth;
     }),
