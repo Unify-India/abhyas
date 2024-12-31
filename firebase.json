@@ -30,6 +30,7 @@
       "port": 9000,
       "host": "localhost",
       "rules": "firebase/database.rules.json",
+      "seed": "firebase/seed-data.json",
       "logFile": "firebase/logs/database-debug.log"
     },
     "ui": {
