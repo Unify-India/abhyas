@@ -1,0 +1,156 @@
+{
+  "questions": {
+    "en": {
+      "Q123": {
+        "questionId": "Q123",
+        "text": "What is the chemical formula for water?",
+        "options": {
+          "a": "H2O",
+          "b": "CO2",
+          "c": "NaCl",
+          "d": "O2"
+        },
+        "imageUrl": "https://example.com/images/water-molecule.png"
+      },
+      "Q456": {
+        "questionId": "Q456",
+        "text": "Is the following statement true or false? The Earth is flat.",
+        "type": "True/False"
+      },
+      "Q789": {
+        "questionId": "Q789",
+        "text": "Who was the first Prime Minister of India?",
+        "type": "Short Answer"
+      },
+      "Q101": {
+        "questionId": "Q101",
+        "text": "Explain the causes of the Indian Rebellion of 1857.",
+        "type": "Essay"
+      },
+      "Q112": {
+        "questionId": "Q112",
+        "text": "Write a Python program to print the Fibonacci sequence up to n terms.",
+        "type": "Coding",
+        "codeSnippet": "def fibonacci(n):\n  # Add your code here"
+      }
+    },
+    "hi": {
+      "Q123": {
+        "questionId": "Q123",
+        "text": "जल का रासायनिक सूत्र क्या है?",
+        "options": {
+          "a": "H2O",
+          "b": "CO2",
+          "c": "NaCl",
+          "d": "O2"
+        },
+        "imageUrl": "https://example.com/images/water-molecule.png"
+      },
+      "Q456": {
+        "questionId": "Q456",
+        "text": "क्या निम्नलिखित कथन सत्य है या असत्य? पृथ्वी चपटी है।",
+        "type": "True/False"
+      },
+      "Q789": {
+        "questionId": "Q789",
+        "text": "भारत के पहले प्रधान मंत्री कौन थे?",
+        "type": "Short Answer"
+      },
+      "Q101": {
+        "questionId": "Q101",
+        "text": "1857 के भारतीय विद्रोह के कारणों की व्याख्या कीजिए।",
+        "type": "Essay"
+      },
+      "Q112": {
+        "questionId": "Q112",
+        "text": "n पदों तक फाइबोनैचि अनुक्रम को प्रिंट करने के लिए एक पायथन प्रोग्राम लिखें।",
+        "type": "Coding",
+        "codeSnippet": "def fibonacci(n):\n  # अपना कोड यहाँ जोड़ें"
+      }
+    }
+  },
+  "answers": {
+    "Q123": {
+      "questionId": "Q123",
+      "answer": "a"
+    },
+    "Q456": {
+      "questionId": "Q456",
+      "answer": false
+    },
+    "Q789": {
+      "questionId": "Q789",
+      "answer": "Jawaharlal Nehru"
+    },
+    "Q101": {
+      "questionId": "Q101",
+      "answer": ""
+    },
+    "Q112": {
+      "questionId": "Q112",
+      "answer": ""
+    }
+  },
+  "registry": {
+    "Q123": {
+      "questionId": "Q123",
+      "type": "Multiple Choice",
+      "languages": ["en", "hi"],
+      "difficulty": "Easy",
+      "points": 1,
+      "subject": {
+        "en": "Science",
+        "hi": "विज्ञान"
+      },
+      "keywords": {
+        "en": ["Chemistry", "Chemical Formula"],
+        "hi": ["रसायन विज्ञान", "रासायनिक सूत्र"]
+      },
+      "gradeLevel": 10,
+      "topic": {
+        "en": "Chemistry",
+        "hi": "रसायन विज्ञान"
+      },
+      "createdBy": "teacher123"
+    },
+    "Q456": {
+      "questionId": "Q456",
+      "type": "True/False",
+      "languages": ["en", "hi"],
+      "difficulty": "Easy",
+      "points": 1,
+      "subject": {
+        "en": "Science",
+        "hi": "विज्ञान"
+      },
+      "keywords": {
+        "en": ["Earth", "Planet"],
+        "hi": ["पृथ्वी", "ग्रह"]
+      },
+      "gradeLevel": 10,
+      "topic": {
+        "en": "Geography",
+        "hi": "भूगोल"
+      },
+      "createdBy": "teacher456"
+    }
+  },
+  "translations": {
+    "en": {
+      "WELCOME": "Welcome to Abhyas!",
+      "SELECT_LANGUAGE": "Select Language",
+      "LOGIN_AS_ADMIN": "Login as Admin",
+      "LOGIN_AS_TEACHER": "Login as Teacher",
+      "LOGIN_AS_STUDENT": "Login as Student",
+      "LOGOUT": "Logout"
+    },
+    "hi": {
+      "WELCOME": "अभ्यास में आपका स्वागत है!",
+      "SELECT_LANGUAGE": "भाषा चुनें",
+      "LOGIN_AS_ADMIN": "प्रशासक के रूप में लॉगिन करें",
+      "LOGIN_AS_TEACHER": "शिक्षक के रूप में लॉगिन करें",
+      "LOGIN_AS_STUDENT": "छात्र के रूप में लॉगिन करें",
+      "LOGOUT": "लॉगआउट"
+    }
+  }
+}
