@@ -23,13 +23,18 @@ export class TranslateConfigService {
   }
 
   public fetchTranslations(lang: string) {
-    const apiUrl = `http://127.0.0.1:9000/translations/${lang}.json`; // Correct URL
+    const apiUrl = `http://127.0.0.1:9000/translations/${lang}.json?ns=demo-acharya`; // Correct URL
 
     this.http.get(apiUrl).subscribe({
       next: (translations: any) => {
         console.log('Fetched translations from local:', translations);
-        this.translate.setTranslation(lang, translations, true);
-        this.translate.use(lang);
+        if (!translations) {
+          console.info('Translations not found:', translations);
+          return;
+        } else {
+          this.translate.setTranslation(lang, translations, true);
+          this.translate.use(lang);
+        }
       },
       error: (error) => {
         if (error.status === 404) {
