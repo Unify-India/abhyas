@@ -29,7 +29,7 @@
     "database": {
       "port": 9000,
       "host": "localhost",
-      "seed": "firebase/seeds/seed-data.json",
+      "seed": "firebase/seeds/demo-acharya.json",
       "logFile": "firebase/logs/database-debug.log"
     },
     "ui": {
