@@ -10,16 +10,27 @@
   ],
   "emulators": {
     "auth": {
-      "port": 9099
+      "port": 9099,
+      "host": "localhost",
+      "seed": "firebase/auth-data.json",
+      "logFile": "firebase/logs/auth-debug.log"
     },
     "functions": {
-      "port": 5001
+      "port": 5001,
+      "host": "localhost",
+      "logFile": "firebase/logs/functions-debug.log"
     },
     "firestore": {
-      "port": 8080
+      "port": 8080,
+      "host": "localhost",
+      "seed": "firebase/seeds/firestore-seed.json",
+      "logFile": "firebase/logs/firestore-debug.log"
     },
     "database": {
-      "port": 9000
+      "port": 9000,
+      "host": "localhost",
+      "seed": "firebase/seeds/demo-acharya.json",
+      "logFile": "firebase/logs/database-debug.log"
     },
     "ui": {
       "enabled": true,
@@ -28,10 +39,10 @@
     "singleProjectMode": true
   },
   "database": {
-    "rules": "database.rules.json"
+    "rules": "firebase/database.rules.json"
   },
   "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
+    "rules": "firebase/firestore.rules",
+    "indexes": "firebase/firestore.indexes.json"
   }
 }

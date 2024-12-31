@@ -71,14 +71,14 @@ export class AppComponent implements OnInit, OnDestroy {
       this.updateMenu();
     });
     // Call the RTDB and log data to console
-    // this.apiService
-    //   .getDataFromRealtimeDB('/translations/en')
-    //   .then((data) => {
-    //     console.log('Fetched data from RTDB:', data);
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error fetching data from RTDB:', error);
-    //   });
+    this.apiService
+      .getDataFromRealtimeDB('/translations')
+      .then((data) => {
+        console.log('Fetched data from RTDB:', data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data from RTDB:', error);
+      });
   }
 
   ngAfterViewInit() {

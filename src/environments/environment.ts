@@ -21,9 +21,9 @@ export const environment = {
   },
   firebase: {
     apiKey: 'AIzaSyASDlavnQbyYPzTGVKCjgsN8IEqmY3yEH8',
-    databaseURL: 'http://127.0.0.1:9000',
+    databaseURL: 'http://127.0.0.1:9000/?ns=demo-acharya',
     authDomain: 'acharya-81fcf.firebaseapp.com',
-    projectId: 'acharya-81fcf',
+    projectId: 'demo-acharya',
     storageBucket: 'acharya-81fcf.appspot.com',
     messagingSenderId: '1085282617224',
     appId: '1:1085282617224:web:1b5b4f7a0f2b1b3b1d9d0e',

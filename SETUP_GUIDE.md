@@ -67,6 +67,9 @@ cd ..
 
 Ensure you have the correct environment configuration files. You should have `src/environments/environment.ts`, `src/environments/environment.prod.ts`, and `src/environments/environment.staging.ts`.
 
+1. Create a project on firebase
+2. Replace the firebase config on `environment.ts`
+
 ### 7. Running the Ionic App
 
 To run the Ionic app in development mode:
@@ -89,6 +92,11 @@ Then, start the Firebase emulators:
 
 ```sh
 firebase emulators:start --only functions,database,hosting,firestore
+```
+
+To load the working data to emulator:
+```sh
+firebase emulators:start --project=demo-acharya --import=./firebase/seeds --export-on-exit=./firebase/seeds
 ```
 
 ### 9. Linting and Formatting
