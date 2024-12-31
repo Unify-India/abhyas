@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApiService } from '../../../../shared/services/api/api.service';
 
 @Component({
   selector: 'app-create-question',
@@ -14,7 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class CreateQuestionPage implements OnInit {
   questionForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+  ) {}
 
   ngOnInit() {
     this.questionForm = this.fb.group({
@@ -56,10 +60,27 @@ export class CreateQuestionPage implements OnInit {
     this.questionForm.get('answer')?.updateValueAndValidity();
   }
 
-  onSubmit() {
-    if (this.questionForm.valid) {
-      console.log('Form Submitted', this.questionForm.value);
-      // Handle form submission logic here
+  async onSubmit() {
+    const testQuestion = {
+      question: 'What is the capital of France?',
+      type: 'mcq',
+      options: {
+        option1: 'Paris',
+        option2: 'London',
+        option3: 'Berlin',
+        option4: 'Madrid',
+        correctOption: 'option1',
+      },
+      createdAt: Date.now(),
+    };
+
+    try {
+      console.log('Submitting question:', testQuestion);
+
+      const questionId = await this.apiService.createQuestion(testQuestion);
+      console.log('Question created with ID:', questionId);
+    } catch (error) {
+      console.error('Error submitting question:', error);
     }
   }
 }

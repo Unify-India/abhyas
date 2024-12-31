@@ -60,6 +60,7 @@
       </ion-item>
     </div>
 
-    <ion-button expand="block" type="submit" [disabled]="questionForm.invalid">Submit</ion-button>
+    <!-- <ion-button expand="block" type="submit" [disabled]="questionForm.invalid">Submit</ion-button> -->
   </form>
+  <ion-button expand="block" (click)="onSubmit()" type="submit">Submit</ion-button>
 </ion-content>
