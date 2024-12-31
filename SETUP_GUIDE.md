@@ -94,6 +94,11 @@ Then, start the Firebase emulators:
 firebase emulators:start --only functions,database,hosting,firestore
 ```
 
+To load the working data to emulator:
+```sh
+firebase emulators:start --project=demo-acharya --import=./firebase/seeds --export-on-exit=./firebase/seeds
+```
+
 ### 9. Linting and Formatting
 
 To lint the code and fix issues:
