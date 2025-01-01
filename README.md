@@ -23,3 +23,4 @@ Abhyas is a comprehensive learning platform designed to empower students and pro
 **[Insert relevant keywords here, such as: exam preparation, online learning, competitive exams, government exams, AI-powered learning, practice tests, mock tests, study materials, educational app]**
 
 **"Start your learning journey today!"**
+If you would like to contribute, please see the [CONTRIBUTING.md](CONTRIBUTING.md) and [Knowledge.md](docs/knowledge.md) file for more information.
