@@ -2,7 +2,27 @@ name: Standard Workflow
 
 on:
   pull_request:
-    branches: ['main', 'development', 'release/*', 'staging/*', 'hotfix/*']
+    branches:
+      [
+        'main',
+        'development',
+        'release/*',
+        'staging/*',
+        'hotfix/*',
+        'feat/*',
+        'bugfix/*',
+        'chore/*',
+        'refactor/*',
+        'docs/*',
+        'style/*',
+        'test/*',
+        'ci/*',
+        'perf/*',
+        'build/*',
+        'deploy/*',
+        'security/*',
+        'archive/*',
+      ]
 
 jobs:
   lint:
