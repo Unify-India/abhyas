@@ -17,3 +17,8 @@ export const helloWorld = onRequest((request, response) => {
   logger.info('Hello user!', { structuredData: true });
   response.send('Hello from Firebase!');
 });
+
+export const abhyasApi = onRequest((request, response) => {
+  logger.info('Hello user!', { structuredData: true });
+  response.send('Hello from Firebase!');
+});
