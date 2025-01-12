@@ -25,10 +25,16 @@ export interface QuestionRegistry {
 
 export interface Question {
   questionId: string;
-  language: 'en' | 'hi'; // e.g., "en", "hi"
+  language: string; // any language code (e.g., "en", "hi", etc.)
   text: string;
   options?: { [key: string]: string }; // For Multiple Choice
   imageUrl?: string;
   codeSnippet?: string;
   equation?: string; // LaTeX or other format
+}
+
+export interface Answer {
+  questionId: string;
+  answer: string | string[]; // For MCQs, it can be a single string; for multiple correct answers, it can be an array.
+  explanation?: LocalizedStrings; // Using LocalizedStrings for dynamic language support
 }

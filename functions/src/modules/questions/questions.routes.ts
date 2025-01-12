@@ -3,7 +3,7 @@ import { getQuestions, createQuestion, updateQuestion, deleteQuestion, getQuesti
 
 const router = Router();
 
-router.get('/', getQuestions);
+router.get('/:lang', getQuestions);
 router.post('/create', createQuestion);
 router.put('/update/:id', updateQuestion);
 router.delete('/delete/:id', deleteQuestion);
