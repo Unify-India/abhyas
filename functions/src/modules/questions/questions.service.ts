@@ -15,7 +15,9 @@ export const fetchQuestionsByUser = async (userId: string, lang?: string): Promi
   const questionsSnapshot = await db.ref(`questions/${lang || 'all'}`).once('value');
   const allQuestions: { [key: string]: Question } = questionsSnapshot.val();
 
+  // Ensure you filter out undefined or null values before returning
   const userQuestions = questionIds.map((id) => allQuestions[id]).filter(Boolean);
+
   return userQuestions;
 };
 

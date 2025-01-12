@@ -15,9 +15,10 @@ export const getQuestions = async (req: Request, res: Response) => {
 
   try {
     const questions = await fetchQuestionsByUser(userId as string, lang as string);
-    res.status(200).json(questions);
+    return res.status(200).json(questions);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch questions' });
+    console.error('Error fetching questions:', error);
+    return res.status(500).json({ error: 'Failed to fetch questions.' });
   }
 };
 
