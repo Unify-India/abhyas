@@ -1,6 +1,6 @@
 {
   "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"],
-  "cSpell.words": ["abhyas", "acharya", "styleext"],
+  "cSpell.words": ["abhyas", "acharya", "rtdb", "styleext"],
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "editor.formatOnSave": true,
   "[github-actions-workflow]": {
@@ -56,5 +56,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.language": "en, hi, hi-IN",
-  "cSpell.autoFormatConfigFile": true
+  "cSpell.autoFormatConfigFile": true,
+  "dotenv.enableAutocloaking": false
 }

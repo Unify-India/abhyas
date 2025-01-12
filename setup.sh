@@ -70,8 +70,9 @@ npm install || error_exit "Failed to install dependencies."
 log_status "Dependencies installed successfully."
 
 # Step 5: Build the Ionic app
-log_step "Building the Ionic app..."
-ionic build || error_exit "Ionic build failed."
+
+log_step "Building the Ionic app locally..."
+ionic build --configuration=development || error_exit "Ionic local build failed."
 log_status "Ionic app built successfully."
 echo -e "\n"
 

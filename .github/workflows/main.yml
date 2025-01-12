@@ -43,7 +43,7 @@ jobs:
         run: npm run lint
 
   build:
-    name: Build
+    name: Ionic Build
     runs-on: ubuntu-latest
     needs: lint
     steps:
@@ -55,12 +55,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Use local environment file
-        run: |
-          echo "export const environment = { production: true, apiUrl: 'https://example.com/api',  useEmulators: true, firebase: {},functionsRegion: 'asia-south1', emulatorUrls: {  auth: 'http://127.0.0.1:9099',  functions: 'http://127.0.0.1:5001',  firestore: 'http://127.0.0.1:8080',  database: 'http://127.0.0.1:9000',  extensions: 'http://127.0.0.1:5001',},ports: {  auth: 9099,  functions: 5001,  firestore: 8080,  database: 9000,  extensions: 5001,}, };" > src/environments/environment.prod.ts
-
       - name: Install dependencies
         run: npm install
 
-      - name: Build app
-        run: npm run build
+      - name: Build app with development configuration
+        run: npm run build -- --configuration=development
