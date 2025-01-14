@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment'; // Import environment
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +10,13 @@ import { Router } from '@angular/router';
 export class AuthService {
   private currentUser: { id: string; role: string; subscriptionExpiry: Date } | null = null;
   private authStatusListener = new BehaviorSubject<{ id: string; role: string } | null>(null);
+  private apiKey = environment.firebase.apiKey; // Use API key from environment
+  private authUrl = `${environment.emulatorUrls.auth}/identitytoolkit.googleapis.com/v1/accounts`;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+  ) {
     this.loadUserFromSession();
   }
 
@@ -29,15 +36,28 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  login(role: string) {
-    this.currentUser = {
-      id: '1',
-      role,
-      subscriptionExpiry: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-    };
-    sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-    this.authStatusListener.next(this.currentUser);
-    this.redirectToDashboard(role);
+  async loginWithEmailAndPassword(email: string, password: string, role: string) {
+    try {
+      const response: any = await this.http
+        .post(`${this.authUrl}:signInWithPassword?key=${this.apiKey}`, {
+          email,
+          password,
+          returnSecureToken: true,
+        })
+        .toPromise();
+
+      this.currentUser = {
+        id: response.localId,
+        role,
+        subscriptionExpiry: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+      };
+      sessionStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+      this.authStatusListener.next(this.currentUser);
+      this.redirectToDashboard(role);
+    } catch (error) {
+      console.error('Login failed', error);
+      throw error;
+    }
   }
 
   logout() {
