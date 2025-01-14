@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { UiEssentials } from 'src/app/shared/core/micro-components/ui-essentials.module';
@@ -21,6 +21,7 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private alertController: AlertController,
   ) {
     addIcons(this.icons);
   }
@@ -36,8 +37,48 @@ export class LoginPage implements OnInit {
     }
   }
 
-  loginAs(role: string) {
-    this.authService.login(role);
+  async loginAs(role: string) {
+    let email = '';
+    const password = '123456';
+
+    if (role === 'Admin') {
+      email = 'admin@unify.com';
+    } else if (role === 'Teacher') {
+      email = 'teacher@unify.com';
+    }
+
+    const alert = await this.alertController.create({
+      header: `Login as ${role}`,
+      inputs: [
+        {
+          name: 'email',
+          type: 'email',
+          placeholder: 'Email',
+          value: email,
+        },
+        {
+          name: 'password',
+          type: 'password',
+          placeholder: 'Password',
+          value: password,
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+        },
+        {
+          text: 'Login',
+          handler: (data) => {
+            this.authService.loginWithEmailAndPassword(data.email, data.password, role);
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   ngOnInit() {}
