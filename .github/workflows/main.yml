@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run linting
         run: npm run lint
@@ -56,7 +56,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build app with development configuration
         run: npm run build -- --configuration=development
@@ -75,13 +75,13 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Change to functions directory
         run: cd functions
 
       - name: Install dependencies for functions
-        run: npm install
+        run: npm ci
 
       - name: Build functions
         run: npm run build
