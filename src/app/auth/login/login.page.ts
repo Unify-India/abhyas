@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-import { UiEssentials } from 'src/app/shared/core/micro-components/ui-essentials.module';
 import { logoGoogle } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 

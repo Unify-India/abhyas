@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router } from '@angular/router';
 import {
   IonApp,
@@ -49,7 +49,7 @@ import { ApiService } from './shared/services/api/api.service';
     TranslateModule,
   ],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   appPages = MenuData.defaultAppPages;
   icons = UsedIcons.icons;
   isLoggedIn = false;
@@ -67,10 +67,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.updateMenu();
-    this.authListenerSubs = this.authService.getAuthStatusListener().subscribe((user) => {
+    this.authListenerSubs = this.authService.getAuthStatusListener().subscribe((_user) => {
       this.updateMenu();
     });
-    // Call the RTDB and log data to console
     this.apiService
       .getDataFromRealtimeDB('/translations')
       .then((data) => {

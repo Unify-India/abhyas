@@ -314,50 +314,56 @@ I'll provide you with the updated 5 MCQs with the added `answer` field. The expl
 ---
 
 ### Explanation of the New Structure:
+
 - **answer**: Contains the correct answer(s) for the question. For MCQs, it will be a string corresponding to the option (e.g., "A").
   - **answer**: Can be a single string (for MCQs/True/False) or an array of strings (for multiple correct answers).
   - **explanation**: Optionally provides an explanation for the answer, available in all supported languages.
 
 These examples now include answers with explanations, and they support multiple languages for both the questions and answers. You can use these examples in Postman to create the questions with the respective answers and explanations in your portal. Let me know if you'd like further adjustments!
 
-
 To handle the `createQuestion` functionality with user authorization and data addition to `/registry` and `/questions/lang` based on the user's role and eligibility, here’s a structured flow that ensures the system works smoothly, securely, and efficiently:
 
 ### **Step-by-Step Flow for Creating a Question**
 
 1. **User Authentication and Authorization**:
+
    - **Authenticate the User**: First, verify that the user is authenticated. This is usually done by checking the JWT token (for Firebase, this would be handled through Firebase Authentication).
-   - **Check User Role**: After authentication, check the user's role from your database (e.g., Firestore, Realtime Database). The user must have a role of `admin` or `teacher` to be eligible to create a question. 
+   - **Check User Role**: After authentication, check the user's role from your database (e.g., Firestore, Realtime Database). The user must have a role of `admin` or `teacher` to be eligible to create a question.
      - If the user has the required role, proceed to the next step.
      - If the user does not have the required role, deny the request with an appropriate error message like `"User not authorized"`.
 
 2. **Verify Eligibility**:
+
    - **Check Eligibility Criteria**: After verifying the role, check whether the user meets any other criteria you’ve set for question creation (e.g., whether they have created any questions previously, whether they have access to specific subjects, etc.). This can be checked by querying the user’s data in the database.
    - If the user is eligible, proceed to the next step.
    - If the user is not eligible, deny the request with an error message like `"User not eligible to create question"`.
 
 3. **Data Validation and Preprocessing**:
+
    - **Validate the Incoming Data**: Ensure the request body contains all necessary fields for creating the question. This includes checking that the `questionId`, `text`, `options`, `subject`, `language`, etc., are provided and correctly formatted.
    - If any field is missing or invalid, send an error response with a message like `"Invalid input"`.
 
 4. **Add Data to the Database**:
+
    - **Registry Data**:
      - The first step in handling the question creation is to store the metadata of the question (i.e., its `questionId`, `type`, `languages`, `subject`, etc.) in a `registry` location (e.g., `/registry/{questionId}`).
      - This ensures that the system keeps track of the question’s metadata (like the type of question, available languages, grade level, etc.) for easier querying and management.
-   
    - **Question Data**:
      - Store the actual content of the question (text, options, image URLs, etc.) in the `questions/lang` location (e.g., `/questions/{language}/{questionId}`). The language here should correspond to the supported languages for the question (for example, `en` for English, `hi` for Hindi).
      - Depending on the languages available for the question, create separate entries for each language in the `questions/lang` path. If a question is in multiple languages (e.g., English and Hindi), there should be an entry in both `/questions/en/{questionId}` and `/questions/hi/{questionId}`.
 
 5. **Image Handling (if applicable)**:
+
    - If the question includes images, determine whether those images should be uploaded separately to a cloud storage solution (e.g., Firebase Storage, AWS S3) or stored directly as base64-encoded strings in the database.
      - If images are included, store the image URLs in the `question` metadata and/or question content fields.
 
 6. **Transaction for Atomicity**:
+
    - **Atomic Operations**: Since you're updating two paths in your database (`/registry` and `/questions/lang`), use a transaction or batch operation to ensure that both paths are updated atomically. If one operation fails (e.g., storing question content in one language fails), the entire process should roll back to maintain data integrity.
      - This can be done using Firebase’s transaction or batch operations to ensure that either both `/registry` and `/questions/lang` are successfully written, or neither is written if there’s an error.
 
 7. **Responding to the Client**:
+
    - Once the data has been successfully added to the database:
      - **Success Response**: If everything is successful, send a response to the client with a `201` status and a success message, e.g., `"Question created successfully"`.
      - **Error Handling**: If an error occurs at any point, send an error response with the appropriate error message, e.g., `"Failed to create question"` or `"Image upload failed"`, depending on the issue.
@@ -370,18 +376,18 @@ To handle the `createQuestion` functionality with user authorization and data ad
 ### **Key Considerations for the Flow**
 
 1. **Security**:
+
    - Always validate the user's role and eligibility before proceeding with any database operations to prevent unauthorized access.
    - Ensure that only users with the `admin` or `teacher` role can create questions, as these roles are responsible for managing content.
 
 2. **Database Integrity**:
+
    - Since you're updating two different parts of the database (`/registry` and `/questions/lang`), use Firebase's batch operations or transactions to ensure atomicity. This avoids situations where one part of the data is saved, but the other part is not, which can lead to data inconsistency.
 
 3. **Error Handling**:
    - Ensure that every step has proper error handling. If an image upload fails or a required field is missing, the backend should send clear error messages, helping the frontend developers debug the issue.
-   
 4. **Efficiency**:
    - If images are large, consider uploading them separately to a cloud storage service (like Firebase Storage or AWS S3) and storing only the URLs in the database. This approach avoids bloating your database with large image data.
-   
 5. **Scalability**:
    - If the number of questions or images grows significantly, ensure your system is scalable, such as by organizing your Firebase storage and database queries efficiently (e.g., pagination for fetching questions).
 

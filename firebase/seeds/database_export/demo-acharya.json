@@ -1,1 +1,143 @@
-{"answers":{"Q101":{"answer":"","questionId":"Q101"},"Q112":{"answer":"","questionId":"Q112"},"Q123":{"answer":"a","questionId":"Q123"},"Q456":{"answer":false,"questionId":"Q456"},"Q789":{"answer":"Jawaharlal Nehru","questionId":"Q789"}},"questions":{"en":{"Q101":{"questionId":"Q101","text":"Explain the causes of the Indian Rebellion of 1857. Mention leaders involved. ","type":"Essay"},"Q112":{"codeSnippet":"def fibonacci(n):\n  # Add your code here","questionId":"Q112","text":"Write a Python program to print the Fibonacci sequence up to n terms.","type":"Coding"},"Q123":{"imageUrl":"https://example.com/images/water-molecule.png","options":{"a":"H2O","b":"CO2","c":"NaCl","d":"O2"},"questionId":"Q123","text":"What is the chemical formula for water?"},"Q456":{"questionId":"Q456","text":"Is the following statement true or false? The Earth is flat.","type":"True/False"},"Q789":{"questionId":"Q789","text":"Who was the first Prime Minister of India?","type":"Short Answer"},"q1":{"answer":{"answer":"A","explanation":{"en":"To solve for x, subtract 5 from both sides: 3x = 15. Then divide by 3 to get x = 5.","hi":"x के लिए हल करने के लिए, दोनों पक्षों से 5 घटाएं: 3x = 15। फिर 3 से विभाजित करें, जिससे x = 5 मिलेगा।"},"questionId":"q1"},"language":"en","options":{"A":"x = 5","B":"x = 3","C":"x = 10","D":"x = 4"},"questionId":"q1","text":"Solve for x: 3x + 5 = 20."}},"hi":{"Q101":{"questionId":"Q101","text":"1857 के भारतीय विद्रोह के कारणों की व्याख्या कीजिए।","type":"Essay"},"Q112":{"codeSnippet":"def fibonacci(n):\n  # अपना कोड यहाँ जोड़ें","questionId":"Q112","text":"n पदों तक फाइबोनैचि अनुक्रम को प्रिंट करने के लिए एक पायथन प्रोग्राम लिखें।","type":"Coding"},"Q123":{"imageUrl":"https://example.com/images/water-molecule.png","options":{"a":"H2O","b":"CO2","c":"NaCl","d":"O2"},"questionId":"Q123","text":"जल का रासायनिक सूत्र क्या है?"},"Q456":{"questionId":"Q456","text":"क्या निम्नलिखित कथन सत्य है या असत्य? पृथ्वी चपटी है।","type":"True/False"},"Q789":{"questionId":"Q789","text":"भारत के पहले प्रधान मंत्री कौन थे?","type":"Short Answer"},"q1":{"answer":{"answer":"A","explanation":{"en":"To solve for x, subtract 5 from both sides: 3x = 15. Then divide by 3 to get x = 5.","hi":"x के लिए हल करने के लिए, दोनों पक्षों से 5 घटाएं: 3x = 15। फिर 3 से विभाजित करें, जिससे x = 5 मिलेगा।"},"questionId":"q1"},"language":"hi","options":{"A":"x = 5","B":"x = 3","C":"x = 10","D":"x = 4"},"questionId":"q1","text":"x के लिए हल करें: 3x + 5 = 20."}}},"registry":{"Q123":{"createdBy":"teacher123","difficulty":"Easy","gradeLevel":10,"keywords":{"en":["Chemistry","Chemical Formula"],"hi":["रसायन विज्ञान","रासायनिक सूत्र"]},"languages":["en","hi"],"points":1,"questionId":"Q123","subject":{"en":"Science","hi":"विज्ञान"},"topic":{"en":"Chemistry","hi":"रसायन विज्ञान"},"type":"Multiple Choice"},"Q456":{"createdBy":"teacher456","difficulty":"Easy","gradeLevel":10,"keywords":{"en":["Earth","Planet"],"hi":["पृथ्वी","ग्रह"]},"languages":["en","hi"],"points":1,"questionId":"Q456","subject":{"en":"Science","hi":"विज्ञान"},"topic":{"en":"Geography","hi":"भूगोल"},"type":"True/False"},"q1":{"createdBy":"GAkoRBQbTbF0y9240rmZBe4vHHhF","difficulty":"Medium","examType":"Board Exam","gradeLevel":9,"keywords":{"en":["algebra","equation"],"hi":["बीजगणित","समीकरण"]},"languages":["en","hi"],"points":5,"questionId":"q1","subject":{"en":"Mathematics","hi":"गणित"},"subtopic":{"en":"Solving Linear Equations","hi":"लिनियर समीकरण हल करना"},"topic":{"en":"Linear Equations","hi":"समीकरण"},"type":"Multiple Choice"}},"translations":{"en":{"LOGIN_AS_ADMIN":"Login as Admin","LOGIN_AS_STUDENT":"Login as Student","LOGIN_AS_TEACHER":"Login as Teacher","LOGOUT":"Logout","SELECT_LANGUAGE":"Select Language","WELCOME":"Welcome to Abhyas!"},"hi":{"LOGIN_AS_ADMIN":"प्रशासक के रूप में लॉगिन करें","LOGIN_AS_STUDENT":"छात्र के रूप में लॉगिन करें","LOGIN_AS_TEACHER":"शिक्षक के रूप में लॉगिन करें","LOGOUT":"लॉगआउट","SELECT_LANGUAGE":"भाषा चुनें","WELCOME":"अभ्यास में आपका स्वागत है!"}}}
+{
+  "answers": {
+    "Q101": { "answer": "", "questionId": "Q101" },
+    "Q112": { "answer": "", "questionId": "Q112" },
+    "Q123": { "answer": "a", "questionId": "Q123" },
+    "Q456": { "answer": false, "questionId": "Q456" },
+    "Q789": { "answer": "Jawaharlal Nehru", "questionId": "Q789" }
+  },
+  "questions": {
+    "en": {
+      "Q101": {
+        "questionId": "Q101",
+        "text": "Explain the causes of the Indian Rebellion of 1857. Mention leaders involved. ",
+        "type": "Essay"
+      },
+      "Q112": {
+        "codeSnippet": "def fibonacci(n):\n  # Add your code here",
+        "questionId": "Q112",
+        "text": "Write a Python program to print the Fibonacci sequence up to n terms.",
+        "type": "Coding"
+      },
+      "Q123": {
+        "imageUrl": "https://example.com/images/water-molecule.png",
+        "options": { "a": "H2O", "b": "CO2", "c": "NaCl", "d": "O2" },
+        "questionId": "Q123",
+        "text": "What is the chemical formula for water?"
+      },
+      "Q456": {
+        "questionId": "Q456",
+        "text": "Is the following statement true or false? The Earth is flat.",
+        "type": "True/False"
+      },
+      "Q789": { "questionId": "Q789", "text": "Who was the first Prime Minister of India?", "type": "Short Answer" },
+      "q1": {
+        "answer": {
+          "answer": "A",
+          "explanation": {
+            "en": "To solve for x, subtract 5 from both sides: 3x = 15. Then divide by 3 to get x = 5.",
+            "hi": "x के लिए हल करने के लिए, दोनों पक्षों से 5 घटाएं: 3x = 15। फिर 3 से विभाजित करें, जिससे x = 5 मिलेगा।"
+          },
+          "questionId": "q1"
+        },
+        "language": "en",
+        "options": { "A": "x = 5", "B": "x = 3", "C": "x = 10", "D": "x = 4" },
+        "questionId": "q1",
+        "text": "Solve for x: 3x + 5 = 20."
+      }
+    },
+    "hi": {
+      "Q101": { "questionId": "Q101", "text": "1857 के भारतीय विद्रोह के कारणों की व्याख्या कीजिए।", "type": "Essay" },
+      "Q112": {
+        "codeSnippet": "def fibonacci(n):\n  # अपना कोड यहाँ जोड़ें",
+        "questionId": "Q112",
+        "text": "n पदों तक फाइबोनैचि अनुक्रम को प्रिंट करने के लिए एक पायथन प्रोग्राम लिखें।",
+        "type": "Coding"
+      },
+      "Q123": {
+        "imageUrl": "https://example.com/images/water-molecule.png",
+        "options": { "a": "H2O", "b": "CO2", "c": "NaCl", "d": "O2" },
+        "questionId": "Q123",
+        "text": "जल का रासायनिक सूत्र क्या है?"
+      },
+      "Q456": {
+        "questionId": "Q456",
+        "text": "क्या निम्नलिखित कथन सत्य है या असत्य? पृथ्वी चपटी है।",
+        "type": "True/False"
+      },
+      "Q789": { "questionId": "Q789", "text": "भारत के पहले प्रधान मंत्री कौन थे?", "type": "Short Answer" },
+      "q1": {
+        "answer": {
+          "answer": "A",
+          "explanation": {
+            "en": "To solve for x, subtract 5 from both sides: 3x = 15. Then divide by 3 to get x = 5.",
+            "hi": "x के लिए हल करने के लिए, दोनों पक्षों से 5 घटाएं: 3x = 15। फिर 3 से विभाजित करें, जिससे x = 5 मिलेगा।"
+          },
+          "questionId": "q1"
+        },
+        "language": "hi",
+        "options": { "A": "x = 5", "B": "x = 3", "C": "x = 10", "D": "x = 4" },
+        "questionId": "q1",
+        "text": "x के लिए हल करें: 3x + 5 = 20."
+      }
+    }
+  },
+  "registry": {
+    "Q123": {
+      "createdBy": "teacher123",
+      "difficulty": "Easy",
+      "gradeLevel": 10,
+      "keywords": { "en": ["Chemistry", "Chemical Formula"], "hi": ["रसायन विज्ञान", "रासायनिक सूत्र"] },
+      "languages": ["en", "hi"],
+      "points": 1,
+      "questionId": "Q123",
+      "subject": { "en": "Science", "hi": "विज्ञान" },
+      "topic": { "en": "Chemistry", "hi": "रसायन विज्ञान" },
+      "type": "Multiple Choice"
+    },
+    "Q456": {
+      "createdBy": "teacher456",
+      "difficulty": "Easy",
+      "gradeLevel": 10,
+      "keywords": { "en": ["Earth", "Planet"], "hi": ["पृथ्वी", "ग्रह"] },
+      "languages": ["en", "hi"],
+      "points": 1,
+      "questionId": "Q456",
+      "subject": { "en": "Science", "hi": "विज्ञान" },
+      "topic": { "en": "Geography", "hi": "भूगोल" },
+      "type": "True/False"
+    },
+    "q1": {
+      "createdBy": "GAkoRBQbTbF0y9240rmZBe4vHHhF",
+      "difficulty": "Medium",
+      "examType": "Board Exam",
+      "gradeLevel": 9,
+      "keywords": { "en": ["algebra", "equation"], "hi": ["बीजगणित", "समीकरण"] },
+      "languages": ["en", "hi"],
+      "points": 5,
+      "questionId": "q1",
+      "subject": { "en": "Mathematics", "hi": "गणित" },
+      "subtopic": { "en": "Solving Linear Equations", "hi": "लिनियर समीकरण हल करना" },
+      "topic": { "en": "Linear Equations", "hi": "समीकरण" },
+      "type": "Multiple Choice"
+    }
+  },
+  "translations": {
+    "en": {
+      "LOGIN_AS_ADMIN": "Login as Admin",
+      "LOGIN_AS_STUDENT": "Login as Student",
+      "LOGIN_AS_TEACHER": "Login as Teacher",
+      "LOGOUT": "Logout",
+      "SELECT_LANGUAGE": "Select Language",
+      "WELCOME": "Welcome to Abhyas!"
+    },
+    "hi": {
+      "LOGIN_AS_ADMIN": "प्रशासक के रूप में लॉगिन करें",
+      "LOGIN_AS_STUDENT": "छात्र के रूप में लॉगिन करें",
+      "LOGIN_AS_TEACHER": "शिक्षक के रूप में लॉगिन करें",
+      "LOGOUT": "लॉगआउट",
+      "SELECT_LANGUAGE": "भाषा चुनें",
+      "WELCOME": "अभ्यास में आपका स्वागत है!"
+    }
+  }
+}
