@@ -23,7 +23,7 @@
       },
       "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates"],
       "rules": {
-        "@angular-eslint/no-empty-lifecycle-method": ["warn"],
+        "@angular-eslint/no-empty-lifecycle-method": ["off"],
         "@angular-eslint/component-class-suffix": [
           "error",
           {
@@ -60,7 +60,8 @@
         ],
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "no-unused-vars": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "@typescript-eslint/ban-ts-comment": ["error", { "ts-expect-error": true }]
       }
     },
     {
@@ -70,6 +71,7 @@
       },
       "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {
+        "@typescript-eslint/ban-ts-comment": "off",
         "max-len": ["warn", { "code": 120 }]
       }
     },
@@ -78,7 +80,7 @@
       "rules": {
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "jasmine/no-focused-tests": "warn",
         "jasmine/no-disabled-tests": "warn",

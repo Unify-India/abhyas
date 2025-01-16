@@ -71,7 +71,7 @@ export class AuthService {
     }
   }
 
-  hasValidSubscription(userId: string): boolean {
+  hasValidSubscription(_userId: string): boolean {
     const user = this.getCurrentUser();
     if (!user) return false;
 

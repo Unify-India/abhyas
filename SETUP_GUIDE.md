@@ -95,6 +95,7 @@ firebase emulators:start --only functions,database,hosting,firestore
 ```
 
 To load the working data to emulator:
+
 ```sh
 firebase emulators:start --project=demo-acharya --import=./firebase/seeds --export-on-exit=./firebase/seeds
 ```
@@ -187,7 +188,8 @@ Make the script executable by running the following command:
 #### Run the script:
 
 Run the script to perform the setup:
-```bash 
+
+```bash
 ./setup.sh
 ```
 
@@ -196,17 +198,17 @@ Run the script to perform the setup:
 The `setup.sh` script performs the following steps:
 
 1. Install Dependencies:
-    - Runs npm install to install project dependencies.
+   - Runs npm install to install project dependencies.
 2. Install Global Packages:
-    - Installs the global packages @angular/cli, @ionic/cli, firebase-tools, and openjdk-11-jdk using npm install -g.
+   - Installs the global packages @angular/cli, @ionic/cli, firebase-tools, and openjdk-11-jdk using npm install -g.
 3. Build the Ionic App:
-    - Runs ionic build to build the Ionic application.
+   - Runs ionic build to build the Ionic application.
 4. Build Firebase Functions:
-    - Changes directory to functions and installs dependencies using npm install.
-    - Builds the Firebase functions using npm run build.
-    - Returns to the root directory.
+   - Changes directory to functions and installs dependencies using npm install.
+   - Builds the Firebase functions using npm run build.
+   - Returns to the root directory.
 5. Authenticate with Firebase (Optional):
-    - Uncomment the lines to authenticate with Firebase if needed.
+   - Uncomment the lines to authenticate with Firebase if needed.
 6. Start the Firebase Emulator and Ionic Server:
-    - Starts the Firebase emulator and the Ionic server using firebase emulators:start and ionic serve.
+   - Starts the Firebase emulator and the Ionic server using firebase emulators:start and ionic serve.
 7. If any command fails, the script will print an error message and exit with a non-zero status code. This ensures that the setup process stops immediately if any step encounters an error.

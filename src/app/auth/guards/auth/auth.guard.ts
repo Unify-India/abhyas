@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
-import { UserRoles } from '../../../modules/models/user-roles.model'; // Assume you have an enum or model for roles
+// import { UserRoles } from '../../../modules/models/user-roles.model'; // Assume you have an enum or model for roles
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
     return this.canActivate();
   }
 
-  canDeactivate(component: unknown): boolean {
+  canDeactivate(_component: unknown): boolean {
     // Example: Prevent navigating away during an active exam
     if (this.authService.isExamInProgress()) {
       return confirm('You have an active exam. Are you sure you want to leave?');

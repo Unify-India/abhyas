@@ -9,8 +9,8 @@ describe('TeacherComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeacherComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [TeacherComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TeacherComponent);
