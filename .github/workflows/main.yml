@@ -66,6 +66,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Change to functions directory
+        run: cd functions
+
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -73,9 +76,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Change to functions directory
-        run: cd functions
 
       - name: Install dependencies for functions
         run: npm ci
