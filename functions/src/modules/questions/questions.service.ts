@@ -21,8 +21,14 @@ export const fetchQuestionsByUser = async (userId: string, lang?: string): Promi
   return userQuestions;
 };
 
-export const createNewQuestion = async (question: Question): Promise<void> => {
-  await db.ref(`questions/${question.language}/${question.questionId}`).set(question);
+export const addToRegistry = async (registryData: QuestionRegistry): Promise<void> => {
+  const { questionId } = registryData;
+  await db.ref(`registry/${questionId}`).set(registryData);
+};
+
+export const createNewQuestion = async (language: string, questionData: Question): Promise<void> => {
+  const { questionId } = questionData;
+  await db.ref(`questions/${language}/${questionId}`).set(questionData);
 };
 
 export const updateExistingQuestion = async (questionId: string, question: Question): Promise<void> => {

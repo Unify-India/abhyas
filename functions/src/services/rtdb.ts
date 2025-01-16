@@ -10,19 +10,19 @@ dotenv.config({ path: './src/env/.env' });
 logger.info('Loading environment variables...');
 
 // Log all environment variables for debugging
-logger.info(`Environment variables: ${JSON.stringify(process.env)}`);
+// logger.info(`Environment variables: ${JSON.stringify(process.env)}`);
 
 if (!process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
   logger.error('FIREBASE_SERVICE_ACCOUNT_PATH environment variable is not set');
   throw new Error('FIREBASE_SERVICE_ACCOUNT_PATH environment variable is not set');
 }
 
-logger.info(`FIREBASE_SERVICE_ACCOUNT_PATH: ${process.env.FIREBASE_SERVICE_ACCOUNT_PATH}`);
+// logger.info(`FIREBASE_SERVICE_ACCOUNT_PATH: ${process.env.FIREBASE_SERVICE_ACCOUNT_PATH}`);
 
 let serviceAccount: ServiceAccount;
 try {
   const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH;
-  logger.info('Reading service account file...', serviceAccountPath);
+  // logger.info('Reading service account file...', serviceAccountPath);
   const serviceAccountContent = fs.readFileSync(serviceAccountPath, 'utf8');
   serviceAccount = JSON.parse(serviceAccountContent);
   logger.info('Service account file read successfully');
