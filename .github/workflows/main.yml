@@ -59,7 +59,7 @@ jobs:
         run: npm ci
 
       - name: Build app with development configuration
-        run: npm run build --configuration=development
+        run: npm run build -- --configuration=development
 
   build-functions:
     name: Build Functions
