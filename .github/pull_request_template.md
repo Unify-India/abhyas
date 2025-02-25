@@ -9,7 +9,9 @@
 ## Checklist
 
 <!-- Put an `x` in the boxes that apply. -->
+
 #### PR Checklist
+
 - [ ] I have verified that my PR has the latest changes from the main/active/release branch.
 - [ ] I have verified that the PR title is as per standards.
 - [ ] I have verified that my target branch is correct.
@@ -20,8 +22,9 @@
 - [ ] I have reviewed the changes with the team (if applicable).
 
 #### Code Checklist
+
 - [ ] I have tested my changes locally.
-- [ ] I have verified and confirm that no errors or warning are there in local and browser console. 
+- [ ] I have verified and confirm that no errors or warning are there in local and browser console.
 - [ ] I have verified that my changes are not breaking any other feature.
 - [ ] I have run `npm run lint` and verified that no errors or warnings are there.
 - [ ] I have run `ionic build` and verified that no errors or warnings are there.

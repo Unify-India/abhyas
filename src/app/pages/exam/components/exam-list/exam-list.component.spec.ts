@@ -9,8 +9,8 @@ describe('ExamListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExamListComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [ExamListComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ExamListComponent);

@@ -3,7 +3,9 @@ Yes, establishing a mechanism to check whether the `questionMetadata` has been u
 Here’s how you can implement this mechanism for both the frontend and backend:
 
 ### How It Works:
+
 1. **Backend**:
+
    - The backend stores a timestamp (`updatedOn`) whenever the `questionMetadata` is updated.
    - When the frontend requests `questionMetadata`, the backend compares the stored `updatedOn` timestamp with the `updatedOn` timestamp sent by the frontend.
    - If the timestamps match, the backend returns a `no change` response (or an empty response).
@@ -24,11 +26,11 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-question-form',
   templateUrl: './question-form.component.html',
-  styleUrls: ['./question-form.component.css']
+  styleUrls: ['./question-form.component.css'],
 })
 export class QuestionFormComponent implements OnInit {
   private metadataTimestamp: string | null = localStorage.getItem('metadataTimestamp');
-  public metadata: any;  // To store the question metadata
+  public metadata: any; // To store the question metadata
 
   constructor(private http: HttpClient) {}
 
@@ -51,9 +53,9 @@ export class QuestionFormComponent implements OnInit {
   fetchMetadata(updatedOn: string) {
     // Fetch the actual question metadata if the timestamp is different
     this.http.get<any>('/api/question-metadata').subscribe((response) => {
-      this.metadata = response;  // Update the metadata
+      this.metadata = response; // Update the metadata
       this.metadataTimestamp = updatedOn;
-      localStorage.setItem('metadataTimestamp', updatedOn);  // Store the new timestamp locally
+      localStorage.setItem('metadataTimestamp', updatedOn); // Store the new timestamp locally
     });
   }
 }
@@ -95,7 +97,7 @@ export const getQuestionMetadataTimestamp = functions.https.onRequest(async (req
     // Return only the updatedOn timestamp
     res.status(200).json({ updatedOn });
   } catch (error) {
-    console.error("Error fetching metadata timestamp:", error);
+    console.error('Error fetching metadata timestamp:', error);
     res.status(500).send('Server error');
   }
 });
@@ -110,14 +112,16 @@ export const getQuestionMetadata = functions.https.onRequest(async (req, res) =>
     // Return the full metadata
     res.status(200).json(metadata);
   } catch (error) {
-    console.error("Error fetching metadata:", error);
+    console.error('Error fetching metadata:', error);
     res.status(500).send('Server error');
   }
 });
 ```
 
 ### Flow of Operations:
+
 1. **Frontend**:
+
    - On initial load (in `ngOnInit`), the frontend sends a request to `/api/question-metadata-timestamp` to get the current `updatedOn` timestamp from the backend.
    - The frontend then compares this `updatedOn` with the timestamp stored locally (in `localStorage` or in memory).
    - If the timestamps are different, the frontend sends a request to fetch the full `questionMetadata` from `/api/question-metadata`.
@@ -129,12 +133,14 @@ export const getQuestionMetadata = functions.https.onRequest(async (req, res) =>
    - If the frontend requests the full metadata, the backend sends the complete `questionMetadata` along with the updated timestamp.
 
 ### Benefits of This Approach:
+
 1. **Bandwidth Optimization**: By checking the `updatedOn` timestamp before fetching the full metadata, you avoid sending the full data every time, thus reducing bandwidth usage.
 2. **Performance**: This minimizes unnecessary calls to the backend, reducing load and improving overall performance.
 3. **Scalability**: As your metadata grows, this system ensures that the frontend only fetches the data when necessary.
 4. **Real-time Updates**: When there are updates to the `questionMetadata`, they are reflected in the frontend only when needed.
 
 ### Possible Enhancements:
+
 - **Caching**: For added optimization, you can cache the `questionMetadata` in the frontend for a set period (e.g., 1 hour) and only check the timestamp every few minutes.
 - **Differential Updates**: If your `questionMetadata` grows significantly, consider implementing a system that sends only the updated parts (e.g., `type` or `difficulty`), instead of the entire metadata.
 

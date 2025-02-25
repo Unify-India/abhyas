@@ -74,17 +74,8 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Change to functions directory
-        run: cd functions
-
-      - name: Install dependencies for functions
-        run: npm ci
-
-      - name: Build functions
-        run: npm run build
+      - name: Install dependencies and build functions
+        run: cd functions && npm ci && npm run build
 
       - name: Change back to project root
         run: cd ..
